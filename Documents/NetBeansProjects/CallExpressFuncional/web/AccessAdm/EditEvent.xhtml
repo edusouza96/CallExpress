@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuUser"></ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel for="idOcorrencia" value="Ocorrencia:"/>
+                        <h:inputText id="idOcorrencia" value="#{ocorrenciaBean.ocorrenciaSelecionada.ocorrencia}"  />
+
+                        <h:outputLabel for="idTipoOcorrencia" value="Tipo Ocorrencia:" />
+                        <h:selectOneMenu id="idTipoOcorrencia" value="#{ocorrenciaBean.ocorrenciaSelecionada.tipoOCorrencia}">
+                            <f:selectItem itemLabel="Solicitação" itemValue="solicitação" />
+                            <f:selectItem itemLabel="Problema" itemValue="problema" />
+                            <f:selectItem itemLabel="Projeto" itemValue="projeto" />
+                            <f:selectItem itemLabel="Empréstimo" itemValue="emprestimo" />
+                        </h:selectOneMenu>
+                        
+                        <h:outputLabel for="idTempo" value="Tempo Estimado:"/>
+                        <h:inputText id="idTempo" value="#{ocorrenciaBean.ocorrenciaSelecionada.tempoEstimado}"  />
+                        
+                        <h:commandButton value="Cadastrar" action="#{ocorrenciaBean.atualizarOcorrencia()}"/>
+                        <h:commandButton value="Cancelar" action="/AccessAdm/timeline"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

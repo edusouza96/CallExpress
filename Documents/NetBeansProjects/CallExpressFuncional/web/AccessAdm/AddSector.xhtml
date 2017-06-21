@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuUser"></ui:define>
+            <ui:define name="content">
+               <h:form>
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel for="idNomeSetor" value="Nome do Setor:"/>
+                        <h:inputText id="idNomeSetor" value="#{setorBean.setorSelecionado.nomeSetor}"  />
+
+                        <h:outputLabel for="idAndar" value="Andar:" />
+                        <h:selectOneMenu id="idAndar" value="#{setorBean.setorSelecionado.andar}">
+                            <f:selectItem itemLabel="1º Andar" itemValue="1" />
+                            <f:selectItem itemLabel="2º Andar" itemValue="2" />
+                            <f:selectItem itemLabel="3º Andar" itemValue="3" />
+                            <f:selectItem itemLabel="4º Andar" itemValue="4" />
+                            <f:selectItem itemLabel="5º Andar" itemValue="5" />
+                            <f:selectItem itemLabel="6º Andar" itemValue="6" />
+                        </h:selectOneMenu>
+                        
+                        <h:outputLabel for="idSala" value="N° Sala:"/>
+                        <h:inputText id="idSala" value="#{setorBean.setorSelecionado.sala}"  />
+                        
+                        <h:commandButton value="Cadastrar" action="#{setorBean.adicionarSetor()}"/>
+                        <h:commandButton value="Cancelar" action="/AccessAdm/timeline"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuAdm">
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable var="chamado" value="#{chamadoBean.ListaChamadoU(loginMB.login)}" border="1">            
+                        <h:column>
+                            <f:facet name="header">USUARIO</f:facet>
+                            <h:outputText value="#{chamado.usuario}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">TIPO OCORRENCIA</f:facet>
+                            <h:outputText value="#{chamado.tipoOcorrencia}" />
+                        </h:column>  
+                         <h:column>
+                            <f:facet name="header">OCORRENCIA</f:facet>
+                            <h:outputText value="#{chamado.ocorrencia}" />
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header">DESCRIÇÃO</f:facet>
+                            <h:outputText value="#{chamado.descricao}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">STATUS</f:facet>
+                            <h:outputText value="#{chamado.status}" />
+                        </h:column>  
+                        <h:column>
+                            <f:facet name="header">TECNICO</f:facet>
+                            <h:outputText value="#{chamado.tecnico}" />
+                        </h:column>
+                        
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

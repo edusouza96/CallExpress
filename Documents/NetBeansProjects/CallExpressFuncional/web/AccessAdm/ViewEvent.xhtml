@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuUser"></ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable var="ocorrencia" value="#{ocorrenciaBean.listaOcorrencia}" border="1">            
+                        <h:column>
+                            <f:facet name="header">OCORRENCIA</f:facet>
+                            <h:outputText value="#{ocorrencia.ocorrencia}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">TIPO OCORRENCIA</f:facet>
+                            <h:outputText value="#{ocorrencia.tipoOCorrencia}" />
+                        </h:column>  
+                         <h:column>
+                            <f:facet name="header">TEMPO ESTIMADO</f:facet>
+                            <h:outputText value="#{ocorrencia.tempoEstimado}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">AÇÕES</f:facet>
+                            <h:commandLink value="Editar" action="#{ocorrenciaBean.editarOcorrencia(ocorrencia)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Remover" action="#{ocorrenciaBean.removerOcorrencia(ocorrencia)}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuUser"></ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable var="chamado" value="#{chamadoBean.listaChamado}" border="1">            
+                        <h:column>
+                            <f:facet name="header">USUARIO</f:facet>
+                            <h:outputText value="#{chamado.usuario}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">TIPO OCORRENCIA</f:facet>
+                            <h:outputText value="#{chamado.tipoOcorrencia}" />
+                        </h:column>  
+                         <h:column>
+                            <f:facet name="header">OCORRENCIA</f:facet>
+                            <h:outputText value="#{chamado.ocorrencia}" />
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header">DESCRIÇÃO</f:facet>
+                            <h:outputText value="#{chamado.descricao}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">STATUS</f:facet>
+                            <h:outputText value="#{chamado.status}" />
+                        </h:column>  
+                        <h:column>
+                            <f:facet name="header">TECNICO</f:facet>
+                            <h:outputText value="#{chamado.tecnico}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">AÇÕES</f:facet> 
+                            <h:commandLink value="Atender " action="#{chamadoBean.atenderChamado(chamado, loginMB.login)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Encerrar" action="#{chamadoBean.encerrarChamado(chamado)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Editar " action="#{chamadoBean.editarChamado(chamado)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Remover" action="#{chamadoBean.removeChamado(chamado)}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

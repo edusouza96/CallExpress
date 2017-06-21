@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../TemplateDefault.xhtml">
+            <ui:define name="menuAdm">
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel for="idUsuario" value=""/>
+                        <h:outputLabel id="idUsuario" value="#{chamadoBean.chamadoSelecionado.setUsuario(loginMB.login)}"  />
+
+                        <h:outputLabel for="idTipoOcorrencia" value="Tipo Ocorrencia:" />
+                        <h:selectOneMenu label="idTipoOcorrencia" value="#{chamadoBean.chamadoSelecionado.tipoOcorrencia}">
+                            <f:selectItems value="#{ocorrenciaBean.listaOcorrencia}" var="tipo" itemLabel="#{tipo.tipoOCorrencia}" itemValue="#{tipo.tipoOCorrencia}" /> 
+                        </h:selectOneMenu>
+                                               
+                        <h:outputLabel for="idOcorrencia" value="Ocorrencia"/>
+                        <h:selectOneMenu label="idOcorrencia" value="#{chamadoBean.chamadoSelecionado.ocorrencia}">
+                            <f:selectItems value="#{ocorrenciaBean.listaOcorrencia}" var="ocorrencia" itemLabel="#{ocorrencia.ocorrencia}" itemValue="#{ocorrencia.ocorrencia}" /> 
+                        </h:selectOneMenu>
+                        
+                         <h:outputLabel for="idDescricao" value="Descrição"/>
+                         <h:inputText id="idDescricao" value="#{chamadoBean.chamadoSelecionado.descricao}"  />
+                                                 
+                        <h:commandButton value="Ok" action="#{chamadoBean.adicionarChamado()}"/>
+                        <h:commandButton value="Cancelar" action="index"/>
+                        
+                        <h:outputLabel id="status" value="#{chamadoBean.chamadoSelecionado.setStatus('Aberto')}"  />
+                        <h:outputLabel id="tecnico" value="#{chamadoBean.chamadoSelecionado.setTecnico('Aguardando Atendimento')}"  />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
